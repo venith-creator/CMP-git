@@ -1,0 +1,18 @@
+{
+  "expenses": [
+    {
+      "id": "a794",
+      "desc": "fruits",
+      "amount": 180000,
+      "category": "Food",
+      "date": "2025-05-27T07:29:42.334Z"
+    },
+    {
+      "id": "6177",
+      "desc": "venith bag",
+      "amount": 4536000,
+      "category": "Shopping",
+      "date": "2025-05-27T07:49:11.119Z"
+    }
+  ]
+}

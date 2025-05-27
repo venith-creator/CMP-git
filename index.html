@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Expense Tracker</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Expense Tracker</h1>
+
+        <div id="form">
+            <input type="text" id="descInput" placeholder="Description (e.g. Food)" />
+            <input type="number" id="amountInput" placeholder="Amount (e.g. 250)" />
+            <select id="expense-category">
+                <option value="Uncategorized">Uncategorized</option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Bills">Bills</option>
+                <option value="Shopping">Shopping</option>
+            </select>
+            <button id="addBtn">Add</button>
+            <button id="cancelEditBtn" style="display: none;">Cancel</button>
+        </div>
+
+        <div id="totals">
+            <p><strong>Total:</strong> N<span id="totalDisplay">0</span></p>
+        </div>
+
+        <input type="text" id="searchInput" placeholder="Search expenses..." />
+
+        <select id="sortSelect">
+            <option value="latest">Sort by: Latest</option>
+            <option value="oldest">Sort by: oldest</option>
+        </select>
+        <ul id="expenseList"></ul>
+        <button id="clearAllBtn">Clear All</button>
+        
+        <script type="module" src="app.js"></script>
+    </body>
+</html>

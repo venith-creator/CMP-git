@@ -1,0 +1,74 @@
+body {
+    font-family: 'segoe UI', sans-serif;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+input, button {
+    padding: 0.5rem;
+    margin: 0.3rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #0056B3;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    background-color: #fff;
+    margin-bottom: 0.6rem;
+    padding: 0.7rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.deleteBtn, .editBtn {
+    background-color: gray;
+    margin-right: 0.4rem;
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+}
+#totalDisplay {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+#clearAllBtn {
+    background-color: #ffc107;
+    margin-top: 0.5rem;
+}
+.editing {
+    background-color: #f0f8ff;
+    border-left: 4px solid #007bff;
+}
+@keyframes shake{
+    0% { transform: translateX(0);}
+    20% { transform: translateX(-5px);}
+    40% { transform: translateX(5px);}
+    60% { transform: translateX(-5px);}
+    80% { transform: translateX(5px);}
+    100% { transform: translateX(0);}
+}
+.shake {
+    animation: shake 0.3s ease;
+    border: 1px solid red;
+}
+.highlight {
+    animation: flash 0.5s ease-in-out;
+    background-color: #d4edda;
+}
+@keyframes flash {
+    0% { background-color: #d4edda;}
+    100% { background-color: transparent; }
+}
