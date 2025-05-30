@@ -1,4 +1,4 @@
-const BASE_URL = "https://cmp-git-production.up.railway.app/expenses";
+const BASE_URL = "https://cmp-git-production-824f.up.railway.app/expenses";
 
 export async function fetchExpenses() {
     const res = await fetch(BASE_URL);
