@@ -9,6 +9,8 @@
     <body>
         <h1>Expense Tracker</h1>
 
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+
         <div id="form">
             <input type="text" id="descInput" placeholder="Description (e.g. Food)" />
             <input type="number" id="amountInput" placeholder="Amount (e.g. 250)" />
@@ -20,12 +22,27 @@
                 <option value="Shopping">Shopping</option>
             </select>
             <button id="addBtn">Add</button>
+            <button id="exportBtn">Export to CSV</button>
             <button id="cancelEditBtn" style="display: none;">Cancel</button>
+        </div>
+
+        <div id="dataFilter" style="margin-bottom: 1em;">
+            <label>From: <input type="date" id="startDate"></label>
+            <label>To: <input type="date" id="endDate"></label>
+            <button id="filterBtn">Filter</button>
+            <button id="clearFilterBtn">Clear</button>
         </div>
 
         <div id="totals">
             <p><strong>Total:</strong> N<span id="totalDisplay">0</span></p>
         </div>
+
+        <div id="monthlyBreakdown" style="margin-bottom: 1em;">
+            <h3>monthly Breakdown</h3>
+            <ul id="monthlyBreakdownList"></ul>
+        </div>
+
+        <div id="toast-container" style="position: fixed; top: 20px; right: 20px;"></div>
 
         <input type="text" id="searchInput" placeholder="Search expenses..." />
 

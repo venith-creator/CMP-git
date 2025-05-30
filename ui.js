@@ -54,10 +54,10 @@ function createExpenseItem(item, index, editingId) {
         return li; 
 }
 
-export function renderExpenses(expenseList, totalDisplay, filterText = '', sortOrder = 'latest'){
+export function renderExpenses(expenseList, totalDisplay, filterText = '', sortOrder = 'latest', customList = null){
     expenseList.innerHTML = '';
 
-    let filtered = filterExpenses(expenses, filterText);
+    let filtered = filterExpenses(customList || expenses, filterText);
     filtered = sortExpenses(filtered, sortOrder);
 
     const editingId = document.getElementById('addBtn').dataset.editingId;

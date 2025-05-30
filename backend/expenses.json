@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1748433053316",
+    "desc": "Rice",
+    "amount": 100000,
+    "category": "Food",
+    "date": "2025-05-28T11:50:53.279Z"
+  },
+  {
+    "id": "1748433449244",
+    "desc": "fruits",
+    "amount": 57900,
+    "category": "Food",
+    "date": "2025-05-28T11:57:29.209Z"
+  },
+  {
+    "id": "1748437347502",
+    "desc": "venith bag",
+    "amount": 7777,
+    "category": "Shopping",
+    "date": "2025-05-28T13:02:27.490Z"
+  },
+  {
+    "id": "1748437374613",
+    "desc": "transport",
+    "amount": 2800,
+    "category": "Transport",
+    "date": "2025-05-28T13:02:54.607Z"
+  },
+  {
+    "id": "1748437863285",
+    "desc": "raspberry",
+    "amount": 569000,
+    "category": "Food",
+    "date": "2025-05-28T13:11:03.279Z"
+  },
+  {
+    "id": "1748574764419",
+    "desc": "wristwatches",
+    "amount": 150000,
+    "category": "Shopping",
+    "date": "2025-05-30T03:12:44.413Z"
+  }
+]

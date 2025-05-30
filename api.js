@@ -20,9 +20,13 @@ export async function addExpenseAPI({desc, amount, category}) {
     return  res.json();
 }
 export async function deleteExpenseAPI(id){
-    await fetch(`${BASE_URL}/${id}`, {
+    const res = await fetch(`${BASE_URL}/${id}`, {
         method: 'DELETE'
     });
+    if (!res.ok){
+        const errorText = await res.text();
+        throw new Error(`Failed to delete expense with ID ${id}. Server says: ${errorText}`);
+    }
 }
 
 export async function updateExpenseAPI(id, updatedExpense){
@@ -31,10 +35,7 @@ export async function updateExpenseAPI(id, updatedExpense){
         headers: {
             'content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            ...updatedExpense,
-            date: new Date().toISOString()
-        })
+        body: JSON.stringify(updatedExpense)
     });
     return await res.json();
 }
