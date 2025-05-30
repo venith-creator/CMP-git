@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'expenses.json');
 
 app.use(cors({
-    origin: "*",
+    origin: "http://127.0.0.1:5500",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"]
 }));
