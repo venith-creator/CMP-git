@@ -3,7 +3,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 const DATA_FILE = path.join(__dirname, 'expenses.json');
 
@@ -72,6 +72,6 @@ app.delete('/expenses/:id', (req, res) => {
     res.status(204).end();
 });
 console.log("Server is starting...");
-app.listen(port, () => {
-    console.log(`Expense tracker API running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`);
 });
