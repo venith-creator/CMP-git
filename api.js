@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/expenses";
+const BASE_URL = "https://cmp-git-production.up.railway.app/expenses";
 
 export async function fetchExpenses() {
     const res = await fetch(BASE_URL);
@@ -12,7 +12,7 @@ export async function addExpenseAPI({desc, amount, category}) {
         category,
         date: now.toISOString()
     };
-    const res = await fetch('http://localhost:3000/expenses',{
+    const res = await fetch(BASE_URL,{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(expense)
