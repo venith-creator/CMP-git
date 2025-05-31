@@ -96,9 +96,8 @@ app.delete('/expenses/:id', (req, res) => {
     try {
         console.log('Delete exense accessed', req.params.id);
         const { id } = req.params;
-
-        const initialLength = expenses.length;
-        expenses = expenses.filter(exp => exp.id !== id);
+        
+        const index = expenses.findIndex(exp => exp.id !== id);
 
         if (index === -1) {
             return res.status(404).json({message: 'Expense not found'})
