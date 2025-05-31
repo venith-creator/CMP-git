@@ -8,6 +8,11 @@ const PORT = process.env.PORT || 3000;
 /*const DATA_FILE = path.join(__dirname, 'expenses.json');*/
 let expenses = [];
 
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+    next();
+});
+
 app.use(cors({
     origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -30,6 +35,7 @@ function saveExpenses(expenses) {
 
 app.get('/expenses', (req, res) => {
     try {
+        console.log('Get expenses accessed');
         res.json(expenses);
     } catch (error) {
         console.error('Error loading expenses:', error);
@@ -39,6 +45,7 @@ app.get('/expenses', (req, res) => {
 
 // Add this health check route
 app.get('/', (req, res) => {
+    console.log('Health check accessed');
     res.json({ 
         message: 'Expense API is running', 
         status: 'ok',
@@ -49,6 +56,7 @@ app.get('/', (req, res) => {
 app.post('/expenses', (req, res) => {
     /*const expenses = loadExpenses();*/
     try{
+        console.log('Post expense accessed', req.body);
         const { desc, amount, category, date } = req.body;
         const newExpense = {
             id: Date.now().toString(),
@@ -68,6 +76,7 @@ app.post('/expenses', (req, res) => {
 app.put('/expenses/:id', (req, res) => {
     /*const expenses = loadExpenses();*/
     try  {
+        console.log('Put expense accessed', req.params.id);
         const { id } = req.params;
         const index = expenses.findIndex(exp => exp.id === id);
         if (index === -1) return res.status(404).json({ message: 'Expense not found'});
@@ -85,15 +94,17 @@ app.put('/expenses/:id', (req, res) => {
 app.delete('/expenses/:id', (req, res) => {
     /*let expenses = loadExpenses();*/
     try {
+        console.log('Delete exense accessed', req.params.id);
         const { id } = req.params;
 
         const initialLength = expenses.length;
         expenses = expenses.filter(exp => exp.id !== id);
 
-        if (expenses.length === initialLength) {
+        if (index === -1) {
             return res.status(404).json({message: 'Expense not found'})
         }
         /*saveExpenses(expenses);*/
+        expenses.splice(index,1);
         res.status(204).end();
     } catch (error) {
         console.error('Error deleting expense:', error);
