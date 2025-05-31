@@ -77,7 +77,7 @@ app.put('/expenses/:id', (req, res) => {
         /*saveExpenses(expenses);*/
         res.json(expenses[index]);
     } catch (error) {
-        console.error('Error deleting expense:', error);
+        console.error('Error updating expense:', error);
         res.status(500).json({ message: 'Internal server error'});
     }
 });
