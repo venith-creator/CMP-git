@@ -56,6 +56,14 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+    console.log("Root route was hit");
+    res.status(200).json({
+        message: 'Expense API is alive!',
+        time: new Date().toISOString()
+    });
+});
+
 app.post('/expenses', (req, res) => {
     /*const expenses = loadExpenses();*/
     try{
@@ -114,7 +122,7 @@ app.delete('/expenses/:id', (req, res) => {
     }
 });
 console.log("Server is starting...");
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`server running on port ${PORT}`);
-    console.log(`Health check available at: /`);
+    console.log(`Health check available at: http://localhost:${PORT}/`);
 });
