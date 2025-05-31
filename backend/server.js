@@ -101,6 +101,7 @@ app.delete('/expenses/:id', (req, res) => {
     }
 });
 console.log("Server is starting...");
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
+    console.log(`Health check available at: http://localhost:${PORT}/`);
 });
