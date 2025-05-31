@@ -3,7 +3,10 @@ const cors = require('cors');
 /*const fs = require('fs');
 const path = require('path');*/
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+if(!PORT) {
+    throw new Error ("PORT is not defined");
+}
 
 /*const DATA_FILE = path.join(__dirname, 'expenses.json');*/
 let expenses = [];
@@ -96,7 +99,7 @@ app.delete('/expenses/:id', (req, res) => {
     try {
         console.log('Delete exense accessed', req.params.id);
         const { id } = req.params;
-        
+
         const index = expenses.findIndex(exp => exp.id !== id);
 
         if (index === -1) {
@@ -113,5 +116,5 @@ app.delete('/expenses/:id', (req, res) => {
 console.log("Server is starting...");
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
-    console.log(`Health check available at: http://localhost:${PORT}/`);
+    console.log(`Health check available at: /`);
 });
