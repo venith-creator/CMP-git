@@ -1,4 +1,4 @@
-const BASE_URL = "https://cmp-git-production-824f.up.railway.app/expenses";
+const BASE_URL = "https://cmp-git-production-8847.up.railway.app";
 
 export async function fetchExpenses() {
     const res = await fetch(BASE_URL);
@@ -12,7 +12,7 @@ export async function addExpenseAPI({desc, amount, category}) {
         category,
         date: now.toISOString()
     };
-    const res = await fetch(BASE_URL,{
+    const res = await fetch("https://cmp-git-production-8847.up.railway.app",{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(expense)
