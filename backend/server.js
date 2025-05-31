@@ -3,11 +3,7 @@ const cors = require('cors');
 /*const fs = require('fs');
 const path = require('path');*/
 const app = express();
-const PORT = process.env.PORT;
-if(!PORT) {
-    throw new Error ("PORT is not defined");
-}
-
+const PORT = process.env.PORT || 8080;
 /*const DATA_FILE = path.join(__dirname, 'expenses.json');*/
 let expenses = [];
 
@@ -47,14 +43,13 @@ app.get('/expenses', (req, res) => {
 });
 
 // Add this health check route
-app.get('/', (req, res) => {
-    console.log('Health check accessed');
-    res.json({ 
-        message: 'Expense API is running', 
-        status: 'ok',
-        timestamp: new Date().toISOString()
-    });
+app.get('/debug/env', (req, res) => {
+  res.json({
+    port: process.env.PORT,
+    env: process.env.NODE_ENV || "not set"
+  });
 });
+
 
 app.get('/', (req, res) => {
     console.log("Root route was hit");
@@ -108,7 +103,7 @@ app.delete('/expenses/:id', (req, res) => {
         console.log('Delete exense accessed', req.params.id);
         const { id } = req.params;
 
-        const index = expenses.findIndex(exp => exp.id !== id);
+        const index = expenses.findIndex(exp => exp.id === id);
 
         if (index === -1) {
             return res.status(404).json({message: 'Expense not found'})
