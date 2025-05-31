@@ -37,6 +37,15 @@ app.get('/expenses', (req, res) => {
     }
 });
 
+// Add this health check route
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Expense API is running', 
+        status: 'ok',
+        timestamp: new Date().toISOString()
+    });
+});
+
 app.post('/expenses', (req, res) => {
     /*const expenses = loadExpenses();*/
     try{

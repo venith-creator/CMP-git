@@ -1,7 +1,9 @@
+/*import { expenses } from "./data";*/
+
 const BASE_URL = "https://cmp-git-production-8847.up.railway.app";
 
 export async function fetchExpenses() {
-    const res = await fetch(BASE_URL);
+    const res = await fetch(`${BASE_URL}/expenses`);
     return await res.json();
 }
 export async function addExpenseAPI({desc, amount, category}) {
@@ -12,15 +14,15 @@ export async function addExpenseAPI({desc, amount, category}) {
         category,
         date: now.toISOString()
     };
-    const res = await fetch("https://cmp-git-production-8847.up.railway.app",{
+    const res = await fetch(`${BASE_URL}/expenses`,{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(expense)
     });
-    return  res.json();
+    return await  res.json();
 }
 export async function deleteExpenseAPI(id){
-    const res = await fetch(`${BASE_URL}/${id}`, {
+    const res = await fetch(`${BASE_URL}/expenses/${id}`, {
         method: 'DELETE'
     });
     if (!res.ok){
@@ -30,10 +32,10 @@ export async function deleteExpenseAPI(id){
 }
 
 export async function updateExpenseAPI(id, updatedExpense){
-    const res = await fetch(`${BASE_URL}/${id}`,{
+    const res = await fetch(`${BASE_URL}/expenses/${id}`,{
         method: 'PUT',
         headers: {
-            'content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(updatedExpense)
     });
