@@ -50,6 +50,10 @@ app.get('/debug/env', (req, res) => {
   });
 });
 
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
 
 app.get('/', (req, res) => {
     console.log("Root route was hit");

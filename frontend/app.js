@@ -1,4 +1,4 @@
-import {expenses} from './data.js';
+import {expenses} from '../data.js';
 
 import { renderExpenses } from './ui.js';
 import { fetchExpenses, addExpenseAPI, updateExpenseAPI, deleteExpenseAPI } from './api.js';

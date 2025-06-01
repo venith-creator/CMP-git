@@ -1,4 +1,4 @@
-import { expenses } from "./data.js";
+import { expenses } from "../data.js";
 function timeAgo(date) {
     const now = new Date();
     const past = new Date(date);

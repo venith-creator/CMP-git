@@ -92,6 +92,7 @@ body {
     max-width: 500px;
     margin: 0 auto;
     padding: 1rem;
+    padding-top: 2rem;
 }
 
 #form, #totals, #expenseList, #dataFilter {
@@ -152,4 +153,25 @@ body {
 body.dark-mode #monthlyBreakdownList li {
     background-color: #2c2c2c;
     color: #f1f1f1;
+}
+header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1em;
+}
+#logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    font-size: 2rem;
+}
+body.dark-mode header {
+    background-color: #1e1e1e;
+    padding: 0.5em 1em;
+    border-radius: 8px;
 }
